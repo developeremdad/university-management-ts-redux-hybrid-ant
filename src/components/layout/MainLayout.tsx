@@ -1,4 +1,5 @@
 import { Layout, Menu } from "antd";
+import { Outlet } from "react-router-dom";
 
 const { Header, Content, Sider } = Layout;
 
@@ -72,7 +73,7 @@ const MainLayout = () => {
               minHeight: 360,
             }}
           >
-            <p>main context throw here</p>
+            <Outlet />
           </div>
         </Content>
       </Layout>
