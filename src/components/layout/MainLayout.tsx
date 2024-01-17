@@ -1,36 +1,8 @@
 import { Layout, Menu } from "antd";
 import { Outlet } from "react-router-dom";
+import { mainLayoutItems } from "../../routes/adminRoutes";
 
 const { Header, Content, Sider } = Layout;
-
-const items = [
-  {
-    key: "dashboard",
-    label: "Dashboard",
-  },
-  {
-    key: "faculty",
-    label: "Faculty",
-  },
-  {
-    key: "user",
-    label: "Manage users",
-    children: [
-      {
-        key: "create/user",
-        label: "Create user",
-      },
-      {
-        key: "update/user",
-        label: "Update user",
-      },
-      {
-        key: "delete/user",
-        label: "Delete user",
-      },
-    ],
-  },
-];
 
 const MainLayout = () => {
   return (
@@ -61,7 +33,7 @@ const MainLayout = () => {
           theme="dark"
           mode="inline"
           defaultSelectedKeys={["4"]}
-          items={items}
+          items={mainLayoutItems}
         />
       </Sider>
       <Layout>
