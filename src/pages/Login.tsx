@@ -1,11 +1,13 @@
 import { Button } from "antd";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { useLoginMutation } from "../redux/features/auth/authApi";
 import { setUser } from "../redux/features/auth/authSlice";
 import { useAppDispatch } from "../redux/hook";
 import { verifyToken } from "../utils/verifyToken";
 
 const Login = () => {
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const [login] = useLoginMutation();
   const { handleSubmit, register } = useForm({
@@ -15,8 +17,7 @@ const Login = () => {
     },
   });
 
-  const onSubmit = async (data) => {
-    console.log(data);
+  const onSubmit = async (data: { userId: string; password: string }) => {
     const userInfo = {
       id: data.userId,
       password: data.password,
@@ -24,6 +25,7 @@ const Login = () => {
     const res = await login(userInfo).unwrap();
     const user = verifyToken(res.data.accessToken);
     dispatch(setUser({ user: user, token: res.data.accessToken }));
+    navigate(`/${user.role}/dashboard`);
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
