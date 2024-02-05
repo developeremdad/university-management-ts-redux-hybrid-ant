@@ -1,24 +1,23 @@
 import { Button, Row } from "antd";
+import { FieldValues } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 import PHForm from "../components/form/PHForm";
 import PHInput from "../components/form/PHInput";
 import { useLoginMutation } from "../redux/features/auth/authApi";
+import { TUser, setUser } from "../redux/features/auth/authSlice";
 import { useAppDispatch } from "../redux/hook";
 import { verifyToken } from "../utils/verifyToken";
-import { TUser, setUser } from "../redux/features/auth/authSlice";
-import { toast } from "sonner";
-import { FieldValues } from "react-hook-form";
 
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const [login] = useLoginMutation();
 
-    const defaultValues = {
-      userId: "A-0001",
-      password: "admin123",
-    };
-
+  const defaultValues = {
+    userId: "A-0001",
+    password: "admin123",
+  };
 
   const onSubmit = async (data: FieldValues) => {
     const toastId = toast.loading("Logging in . . .");
