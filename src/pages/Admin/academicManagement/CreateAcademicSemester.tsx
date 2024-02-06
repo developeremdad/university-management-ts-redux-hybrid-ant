@@ -5,7 +5,7 @@ import PHForm from "../../../components/form/PHForm";
 import PHSelect from "../../../components/form/PHSelect";
 import { monthOptions } from "../../../constants/global";
 import { semesterOptions } from "../../../constants/semester";
-import { useAddAcademicSemesterMutation } from "../../../redux/features/admin/academicManagement";
+import { useAddAcademicSemesterMutation } from "../../../redux/features/admin/academicManagement.api";
 import { TResponse } from "../../../types/global";
 
 const CreateAcademicSemester = () => {

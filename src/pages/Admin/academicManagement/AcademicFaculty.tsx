@@ -1,10 +1,42 @@
+import { Button, Table, TableColumnsType } from "antd";
+import { useGetAcademicFacultiesQuery } from "../../../redux/features/admin/academicManagement.api";
+import { TAcademicFaculty } from "../../../types/academicManagement";
+
+export type TTableData = Pick<TAcademicFaculty, "name">;
 
 const AcademicFaculty = () => {
+  const { data: facultyData, isFetching } =
+    useGetAcademicFacultiesQuery(undefined);
+
+  const tableData = facultyData?.data.map(
+    ({ _id, name }: TAcademicFaculty) => ({
+      key: _id,
+      name,
+    })
+  );
+
+  const tableColumn: TableColumnsType<TTableData> = [
+    {
+      title: "Name",
+      key: "name",
+      dataIndex: "name",
+    },
+    {
+      title: "Action",
+      key: "x",
+      render: () => {
+        return (
+          <div>
+            <Button>Update</Button>
+          </div>
+        );
+      },
+    },
+  ];
+
   return (
-     <div>
-             <h1>This is AcademicFaculty component</h1>
-     </div>
-  )
+    <Table loading={isFetching} columns={tableColumn} dataSource={tableData} />
+  );
 };
 
 export default AcademicFaculty;
