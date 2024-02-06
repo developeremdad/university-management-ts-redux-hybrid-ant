@@ -1,6 +1,6 @@
 import { Button, Table, TableColumnsType } from "antd";
 import { useGetAcademicFacultiesQuery } from "../../../redux/features/admin/academicManagement.api";
-import { TAcademicFaculty } from "../../../types/academicManagement";
+import { TAcademicFaculty } from "../../../types/academicManagement.types";
 
 export type TTableData = Pick<TAcademicFaculty, "name">;
 
@@ -17,7 +17,7 @@ const AcademicFaculty = () => {
 
   const tableColumn: TableColumnsType<TTableData> = [
     {
-      title: "Name",
+      title: "Faculty",
       key: "name",
       dataIndex: "name",
     },
