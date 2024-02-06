@@ -44,7 +44,9 @@ const PHForm = ({
   return (
     <FormProvider {...methods}>
       <Form onFinish={methods.handleSubmit(submit)} layout="vertical">
-        <Typography.Title level={4}>{formTitle}</Typography.Title>
+        {formTitle && (
+          <Typography.Title level={4}>{formTitle}</Typography.Title>
+        )}
         {children}
       </Form>
     </FormProvider>
