@@ -13,7 +13,7 @@ const userManagementApi = baseApi.injectEndpoints({
           });
         }
         return {
-          url: "/users",
+          url: "/students",
           method: "GET",
           params: params,
         };

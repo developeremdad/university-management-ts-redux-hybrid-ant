@@ -1,4 +1,6 @@
 export type TStudent = {
+  _id: string;
+  id: string;
   name: TName;
   gender: string;
   password: string;
@@ -14,6 +16,7 @@ export type TStudent = {
   admissionSemester: string;
   academicDepartment: string;
   profileImg: string;
+  fullName?: string;
 };
 
 export type TName = {
