@@ -1,4 +1,11 @@
-import { Button, Pagination, Space, Table, TableColumnsType, TableProps } from "antd";
+import {
+  Button,
+  Pagination,
+  Space,
+  Table,
+  TableColumnsType,
+  TableProps,
+} from "antd";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useGetAllStudentsQuery } from "../../../redux/features/admin/userManagement.api";
